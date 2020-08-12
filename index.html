@@ -23,6 +23,7 @@
     </div>
     <h1 class="title">Tempo Gradient</h1>
     <form class="settings">
+      <div class="time-bar-display"></div>
       <div class="tempo-setting">
         <h3>Tempo Start:&nbsp;</h3>
         <input id="tempostart" type="number" />&nbsp;BPM
@@ -35,23 +36,30 @@
         <h3>Duration:&nbsp;</h3>
         <input id="duration" type="number" />&nbsp;Minutes
       </div>
-      <div class="playback-options">
-        <div><input type="checkbox" /> loop</div>
-        <div><input type="checkbox" /> beat</div>
+      <div class="sound-select">
+        sound:&nbsp;
+        <select name="click-sound" id="click-sound">
+          <option value="click">click</option>
+          <option value="drum">drum</option>
+          <option value="woodblock">woodblock</option>
+        </select>
       </div>
       <div class="play-button-container">
         <input class="play-stop" id="playStop" type="button" value="play" /><i
           class="fas fa-play"
         ></i>
       </div>
-      <div class="website-info">
-        <p>Tempo Gradient</p>
-        <p>v0.7 2020</p>
-        <a href="https://github.com/mwroberts3/tempo-gradient"
-          ><i class="fab fa-github fa-2x"></i
-        ></a>
+      <div class="playback-options">
+        <div><input type="checkbox" /> loop</div>
+        <div><input type="checkbox" /> beat</div>
       </div>
     </form>
+    <div class="website-info">
+      <p>version 0.7 2020&nbsp;</p>
+      <a href="https://github.com/mwroberts3/tempo-gradient"
+        ><i class="fab fa-github"></i
+      ></a>
+    </div>
     <div class="time-display"></div>
     <script src="static/app.js"></script>
   </body>

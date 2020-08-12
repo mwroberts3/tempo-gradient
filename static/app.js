@@ -3,6 +3,7 @@ const playButton = document.querySelector("#playStop");
 const click = document.querySelector("#metronomeClick");
 const timeDisplay = document.querySelector(".time-display");
 const fractionCount = document.querySelectorAll(".interval-fraction");
+const timeBarDisplay = document.querySelector(".time-bar-display");
 let bpmStart = 0;
 let bpmEnd = 0;
 let duration = 0;
@@ -13,7 +14,7 @@ let currentTempo = 0;
 let nowPlaying = false;
 
 // listen for bpm and duration settings
-settings.addEventListener("keyup", () => {
+settings.addEventListener("click", () => {
   bpmStart = settings.tempostart.value;
   bpmEnd = settings.tempoend.value;
   duration = settings.duration.value;
@@ -49,11 +50,11 @@ settings.addEventListener("keyup", () => {
       beatDiff
     );
   }
+});
 
-  playButton.addEventListener("click", () => {
-    startPlayback();
-    // nowPlaying = true;
-  });
+playButton.addEventListener("click", () => {
+  startPlayback();
+  timeBar();
 });
 
 function startPlayback() {
@@ -95,16 +96,18 @@ function startPlayback() {
     if (currentTempo <= bpmEnd) {
       clearInterval(metronome);
     }
-    // console.log(start, new Date().getTime());
   }, 10);
 }
 
-// console.log(
-//   "pivot point!",
-//   "current tempo: ",
-//   currentTempo,
-//   "pivots: ",
-//   n,
-//   "pivotWatch",
-//   pivotWatch
-// );
+function timeBar() {
+  let timeBarCheck = new Date().getTime();
+  let timeBarQue = (settings.duration.value * 60000) / 50;
+  let k = 1;
+  setInterval(() => {
+    if (new Date().getTime() - timeBarCheck >= timeBarQue * k) {
+      timeBarDisplay.innerHTML += `<div class="time-bar-marker"></div>`;
+      k += 1;
+    }
+    console.log(timeBarQue);
+  }, 10);
+}
