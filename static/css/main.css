@@ -89,7 +89,7 @@ input[type="checkbox"]:hover {
   .play-button-container i {
     position: absolute;
     top: 35%;
-    right: 36%;
+    right: 31%;
     color: #fff;
     z-index: -1; }
 
@@ -106,10 +106,13 @@ input[type="checkbox"]:hover {
   align-items: center;
   justify-content: space-evenly; }
 
+.cover {
+  z-index: -1; }
+
 .sound-select {
   background: #444;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid #bbb;
   border-radius: 5px;
   font-weight: bold;
   font-size: 20px;
@@ -140,6 +143,7 @@ input[type="checkbox"]:hover {
 
 .time-bar-display {
   display: flex;
+  flex-wrap: wrap;
   height: 20px;
   align-items: center;
   padding: 5px;

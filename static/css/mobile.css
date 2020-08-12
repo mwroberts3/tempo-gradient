@@ -1,0 +1,25 @@
+.settings {
+  max-width: 350px;
+  margin: auto;
+  grid-template-columns: 1fr;
+  grid-gap: 7px; }
+
+.tempo-setting,
+.duration,
+.sound-select,
+.play-button-container,
+.playback-options {
+  height: 60px; }
+
+.time-bar-display {
+  display: flex;
+  flex-wrap: wrap;
+  height: 20px;
+  align-items: center;
+  padding: 5px;
+  width: 350px;
+  margin: auto;
+  grid-column: 1 / span 1; }
+
+.website-info {
+  top: 89vh; }

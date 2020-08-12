@@ -1,0 +1,33 @@
+.settings {
+  max-width: 700px;
+  margin: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 7px;
+  font-size: 1.15rem; }
+
+#click-sound {
+  font-size: 1.15rem; }
+
+.sound-select,
+.playback-options {
+  font-size: 1.3rem; }
+
+.tempo-setting,
+.duration,
+.sound-select,
+.play-button-container,
+.playback-options {
+  height: 60px; }
+
+.time-bar-display {
+  display: flex;
+  flex-wrap: wrap;
+  height: 20px;
+  align-items: center;
+  padding: 5px;
+  width: 700px;
+  margin: auto;
+  grid-column: 1 / span 2; }
+
+.website-info {
+  top: 93vh; }

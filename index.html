@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tempo Gradient</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -11,9 +12,21 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="static/css/main.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 769px)"
+      href="static/css/tablet.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 414px)"
+      href="static/css/mobile.css"
+    />
   </head>
   <body>
-    <audio id="metronomeClick" src="static/abbridged-click.wav"></audio>
+    <audio id="metronomeClick" src="static/click.wav"></audio>
+    <audio id="beatOne" src="static/drum.wav"></audio>
+    <audio id="beatTwo" src="static/snare.wav"></audio>
     <div class="logo">
       <img
         src="static/tempo_gradient_logo.jpg"
@@ -37,25 +50,25 @@
         <input id="duration" type="number" />&nbsp;Minutes
       </div>
       <div class="sound-select">
-        sound:&nbsp;
+        Sound:&nbsp;
         <select name="click-sound" id="click-sound">
           <option value="click">click</option>
-          <option value="drum">drum</option>
+          <option value="drum">kick</option>
           <option value="woodblock">woodblock</option>
         </select>
       </div>
       <div class="play-button-container">
-        <input class="play-stop" id="playStop" type="button" value="play" /><i
+        <input class="play-stop" id="playStop" type="button" value="Play" /><i
           class="fas fa-play"
         ></i>
       </div>
       <div class="playback-options">
-        <div><input type="checkbox" /> loop</div>
-        <div><input type="checkbox" /> beat</div>
+        <div><input id="loop" type="checkbox" /> loop</div>
+        <div><input id="beat" type="checkbox" /> beat</div>
       </div>
     </form>
     <div class="website-info">
-      <p>version 0.7 2020&nbsp;</p>
+      <p>version 0.9 2020&nbsp;</p>
       <a href="https://github.com/mwroberts3/tempo-gradient"
         ><i class="fab fa-github"></i
       ></a>
