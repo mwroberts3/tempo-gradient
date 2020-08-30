@@ -1,3 +1,22 @@
+.popout-btn {
+  cursor: pointer;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  background: #333;
+  box-shadow: 3px 3px #666;
+  width: 29%;
+  height: 24px;
+  margin: 0 4px;
+  font-size: 1.15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.option-selected {
+  box-shadow: 1px 1px #666;
+  background: #777;
+  color: #d7e0f7; }
+
 * {
   margin: 0;
   padding: 0;
@@ -119,11 +138,6 @@ input[type="checkbox"]:hover {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .sound-select select {
-    background: #bbb;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
-    height: 20px; }
 
 .website-info {
   position: absolute;

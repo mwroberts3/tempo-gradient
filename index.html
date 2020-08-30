@@ -31,7 +31,7 @@
       <img
         src="static/tempo_gradient_logo.jpg"
         alt="Tempo Gradient Logo"
-        style="width: 20%;"
+        style="width: 20%"
       />
     </div>
     <h1 class="title">Tempo Gradient</h1>
@@ -50,12 +50,15 @@
         <input id="duration" type="number" />&nbsp;Min
       </div>
       <div class="sound-select">
-        Sound:&nbsp;
+        <!-- Sound:&nbsp;
         <select name="click-sound" id="click-sound">
           <option value="click">click</option>
           <option value="drum">kick</option>
           <option value="woodblock">woodblock</option>
-        </select>
+        </select> -->
+        <div class="popout-btn click-btn option-selected">click</div>
+        <div class="popout-btn drum-btn">kick</div>
+        <div class="popout-btn woodblock-btn">block</div>
       </div>
       <div class="play-button-container">
         <input class="play-stop" id="playStop" type="button" value="Play" /><i
@@ -63,8 +66,10 @@
         ></i>
       </div>
       <div class="playback-options">
-        <div><input id="loop" type="checkbox" /> loop</div>
-        <div><input id="beat" type="checkbox" /> beat</div>
+        <!-- <div><input id="loop" type="checkbox" /> loop</div>
+        <div><input id="beat" type="checkbox" /> beat</div> -->
+        <div class="popout-btn loop-option">loop</div>
+        <div class="popout-btn beat-option">beat</div>
       </div>
     </form>
     <div class="website-info">
