@@ -7,6 +7,7 @@ const timeBarDisplay = document.querySelector(".time-bar-display");
 const playBackOptions = document.querySelector(".playback-options");
 const clickSound = document.getElementById("click-sound");
 const clickSoundFile = document.getElementById("metronomeClick");
+const soundSelect = document.querySelector(".sound-select");
 let bpmStart = 0;
 let bpmEnd = 0;
 let duration = 0;
@@ -18,18 +19,60 @@ let nowPlaying = false;
 let beatOne = document.querySelector("#beatOne");
 let beatTwo = document.querySelector("#beatTwo");
 let beatOnKick = true;
+let loopCheck = false;
+let beatCheck = false;
 
-clickSound.addEventListener("click", () => {
-  console.log(clickSound.value);
-  if (clickSound.value == "drum") {
-    clickSoundFile.src = "static/drum.wav";
-  } else if (clickSound.value == "woodblock") {
-    clickSoundFile.src = "static/woodBlock.wav";
-  } else {
+// SOUND SELECT
+soundSelect.addEventListener("click", (e) => {
+  const soundOptions = Array.from(soundSelect.children);
+  soundOptions.forEach((option) => option.classList.remove("option-selected"));
+  e.target.classList.add("option-selected");
+
+  if (e.target.classList.contains("click-btn")) {
     clickSoundFile.src = "static/click.wav";
+  } else if (e.target.classList.contains("drum-btn")) {
+    clickSoundFile.src = "static/drum.wav";
+  } else if (e.target.classList.contains("woodblock-btn")) {
+    clickSoundFile.src = "static/woodBlock.wav";
   }
 });
 
+// PLAYBACK OPTIONS
+playBackOptions.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("loop-option") &&
+    !e.target.classList.contains("option-selected")
+  ) {
+    e.target.classList.toggle("option-selected");
+    loopCheck = true;
+    console.log(loopCheck, beatCheck);
+  } else if (
+    e.target.classList.contains("loop-option") &&
+    e.target.classList.contains("option-selected")
+  ) {
+    e.target.classList.toggle("option-selected");
+    loopCheck = false;
+    console.log(loopCheck, beatCheck);
+  }
+
+  if (
+    e.target.classList.contains("beat-option") &&
+    !e.target.classList.contains("option-selected")
+  ) {
+    e.target.classList.toggle("option-selected");
+    beatCheck = true;
+    console.log(loopCheck, beatCheck);
+  } else if (
+    e.target.classList.contains("beat-option") &&
+    e.target.classList.contains("option-selected")
+  ) {
+    e.target.classList.toggle("option-selected");
+    beatCheck = false;
+    console.log(loopCheck, beatCheck);
+  }
+});
+
+// TEMPO INPUT & PLAYBACK INIT
 settings.playStop.addEventListener("click", () => {
   bpmStart = settings.tempostart.value;
   bpmEnd = settings.tempoend.value;
@@ -80,77 +123,3 @@ settings.playStop.addEventListener("click", () => {
     location.reload();
   }
 });
-
-function startPlayback(n, start, overallClock, firstCheck) {
-  // playBackOptions.classList.toggle("cover");
-  const metronome = setInterval(() => {
-    if (new Date().getTime() - start >= currentTempo) {
-      if (settings.beat.checked) {
-        if (beatOnKick) {
-          beatOne.play();
-          beatOnKick = false;
-        } else {
-          beatTwo.play();
-          beatOnKick = true;
-        }
-      } else {
-        click.play();
-      }
-      // console.log(new Date().getTime() - start);
-      start = new Date().getTime();
-    }
-    if (new Date().getTime() - overallClock >= pivotPoint) {
-      firstCheck = true;
-    }
-    if (new Date().getTime() - overallClock >= pivotPoint * n && firstCheck) {
-      currentTempo -= beatDiff;
-      n += 1;
-      console.log("----------", n);
-      console.log("current tempo: ", currentTempo);
-      console.log("pivot count: ", n);
-      console.log("BPM end: ", bpmEnd);
-      console.log("current pivot point: ", pivotPoint - currentPivotPointDiff);
-      console.log("current pivot diff: ", currentPivotPointDiff);
-      console.log("beat difference: ", beatDiff);
-      console.log("time elapsed: ", new Date().getTime() - overallClock);
-    }
-    if (currentTempo <= bpmEnd) {
-      if (settings.loop.checked) {
-        // console.log("loop checked");
-        n = 0;
-        start = new Date().getTime();
-        overallClock = new Date().getTime();
-        firstCheck = false;
-        currentTempo = 60000 / (60000 / bpmStart);
-      } else {
-        clearInterval(metronome);
-      }
-    }
-    if (settings.beat.checked) {
-      console.log("beat checked");
-    }
-  }, 10);
-}
-
-function timeBar() {
-  let timeBarCheck = new Date().getTime();
-  let timeBarQue = (settings.duration.value * 60000) / 50;
-  let k = 1;
-  const timeBarConst = setInterval(() => {
-    if (new Date().getTime() - timeBarCheck >= timeBarQue * k) {
-      timeBarDisplay.innerHTML += `<div class="time-bar-marker"></div>`;
-      k += 1;
-    }
-    if (k > 50 && !settings.loop.checked) {
-      clearInterval(timeBarConst);
-      setTimeout(() => {
-        location.reload();
-      }, 3000);
-    } else if (k > 50 && settings.loop.checked) {
-      k = 1;
-      timeBarCheck = new Date().getTime();
-      timeBarDisplay.innerHTML = ``;
-    }
-    console.log(timeBarQue);
-  }, 10);
-}

@@ -6,6 +6,10 @@
     <title>Tempo Gradient</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
@@ -50,12 +54,6 @@
         <input id="duration" type="number" />&nbsp;Min
       </div>
       <div class="sound-select">
-        <!-- Sound:&nbsp;
-        <select name="click-sound" id="click-sound">
-          <option value="click">click</option>
-          <option value="drum">kick</option>
-          <option value="woodblock">woodblock</option>
-        </select> -->
         <div class="popout-btn click-btn option-selected">click</div>
         <div class="popout-btn drum-btn">kick</div>
         <div class="popout-btn woodblock-btn">block</div>
@@ -66,8 +64,6 @@
         ></i>
       </div>
       <div class="playback-options">
-        <!-- <div><input id="loop" type="checkbox" /> loop</div>
-        <div><input id="beat" type="checkbox" /> beat</div> -->
         <div class="popout-btn loop-option">loop</div>
         <div class="popout-btn beat-option">beat</div>
       </div>
@@ -79,6 +75,7 @@
       ></a>
     </div>
     <div class="time-display"></div>
+    <script src="static/functions.js"></script>
     <script src="static/app.js"></script>
   </body>
 </html>
