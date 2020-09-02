@@ -166,7 +166,8 @@ input[type="checkbox"]:hover {
   padding: 5px;
   width: 1000px;
   margin: auto;
-  grid-column: 1 / span 3; }
+  grid-column: 1 / span 3;
+  will-change: contents; }
   .time-bar-display .time-bar-marker {
     width: 1%;
     height: 5px;

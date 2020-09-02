@@ -25,8 +25,13 @@ let beatCheck = false;
 // SOUND SELECT
 soundSelect.addEventListener("click", (e) => {
   const soundOptions = Array.from(soundSelect.children);
-  soundOptions.forEach((option) => option.classList.remove("option-selected"));
-  e.target.classList.add("option-selected");
+
+  if (e.target.classList.contains("popout-btn")) {
+    soundOptions.forEach((option) =>
+      option.classList.remove("option-selected")
+    );
+    e.target.classList.add("option-selected");
+  }
 
   if (e.target.classList.contains("click-btn")) {
     clickSoundFile.src = "static/click.wav";
@@ -88,7 +93,8 @@ settings.playStop.addEventListener("click", () => {
 
   if (bpmStart && bpmEnd && duration) {
     duration *= 60000;
-    pivots = bpmEnd - bpmStart;
+    pivots = (bpmEnd - bpmStart) * 5;
+
     // convert bpmEnd to milliseconds so interval can clear when target bpm is reached
     currentTempo = 60000 / bpmStart;
     bpmEnd = 60000 / bpmEnd;
@@ -118,7 +124,7 @@ settings.playStop.addEventListener("click", () => {
     let overallClock = new Date().getTime();
     let firstCheck = false;
     startPlayback(n, start, overallClock, firstCheck);
-    timeBar();
+    timeBar(duration);
   } else {
     location.reload();
   }
