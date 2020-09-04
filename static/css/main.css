@@ -76,7 +76,7 @@ h3 {
 input[type="number"] {
   width: 80px;
   height: 30px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 16px;
   background: #bbb;
   font-weight: normal; }
@@ -84,13 +84,11 @@ input[type="number"] {
 input[type="button"] {
   width: 100%;
   height: 100%;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 16px;
-  font-weight: normal;
+  font-family: "Courier Prime", monospace;
+  font-weight: bold;
   border: none;
   color: #fff;
   font-size: 20px;
-  font-weight: normal;
   background: transparent; }
   input[type="button"]:hover {
     background: rgba(51, 42, 212, 0.5);

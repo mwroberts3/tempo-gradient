@@ -2,14 +2,23 @@
   max-width: 95%;
   margin: auto;
   grid-template-columns: 1fr;
-  grid-gap: 0; }
+  grid-gap: 1; }
 
 .tempo-setting,
 .duration,
 .sound-select,
 .play-button-container,
 .playback-options {
-  height: 80px; }
+  height: 100px;
+  border: none; }
+
+.tempo-setting > *,
+.duration > * {
+  width: 40%; }
+
+input[type="number"] {
+  width: 100px;
+  height: 40px; }
 
 .time-bar-display {
   display: flex;
@@ -17,10 +26,19 @@
   height: 20px;
   align-items: center;
   padding: 5px;
-  width: 350px;
+  width: 100%;
   margin: auto;
   grid-column: 1 / span 1;
   will-change: contents; }
 
 .website-info {
-  top: 87vh; }
+  margin-top: 100px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 0; }
+
+.popout-btn {
+  height: 70%; }
+
+.playback-options div {
+  height: 88%; }

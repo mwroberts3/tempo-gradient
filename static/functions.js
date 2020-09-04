@@ -1,4 +1,7 @@
-function startPlayback(n, start, overallClock, firstCheck) {
+function startPlayback() {
+  let n = 2;
+  let overallClock = new Date().getTime();
+  let start = new Date().getTime();
   const metronome = setInterval(() => {
     if (new Date().getTime() - start >= currentTempo) {
       if (beatCheck) {
@@ -14,10 +17,7 @@ function startPlayback(n, start, overallClock, firstCheck) {
       }
       start = new Date().getTime();
     }
-    if (new Date().getTime() - overallClock >= pivotPoint) {
-      firstCheck = true;
-    }
-    if (new Date().getTime() - overallClock >= pivotPoint * n && firstCheck) {
+    if (new Date().getTime() - overallClock >= pivotPoint * n) {
       currentTempo -= beatDiff;
       n += 1;
     }
@@ -30,9 +30,7 @@ function startPlayback(n, start, overallClock, firstCheck) {
         n = 0;
         start = new Date().getTime();
         overallClock = new Date().getTime();
-        firstCheck = false;
         currentTempo = 60000 / (60000 / bpmStart);
-        console.log("is this working?");
       } else {
         clearInterval(metronome);
       }

@@ -115,15 +115,19 @@ settings.playStop.addEventListener("click", () => {
       beatDiff
     );
   }
+  // RUN AS REGULAR METRONOME, ONLY NEED THE TEMPO-START FIELD FILLED IN TODO
+  else if (bpmStart) {
+    beatDiff = 0;
+    currentTempo = 60000 / bpmStart;
+    bpmEnd = currentTempo + 1;
+    pivotPoint = null;
+    console.log(beatDiff);
+  }
   if (!nowPlaying) {
     playButton.blur();
     playButton.value = "reset";
     nowPlaying = true;
-    let n = 0;
-    let start = new Date().getTime();
-    let overallClock = new Date().getTime();
-    let firstCheck = false;
-    startPlayback(n, start, overallClock, firstCheck);
+    startPlayback();
     timeBar(duration);
   } else {
     location.reload();
