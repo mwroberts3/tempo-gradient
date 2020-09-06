@@ -88,7 +88,7 @@ input[type="button"] {
   font-weight: bold;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 25px;
   background: transparent; }
   input[type="button"]:hover {
     background: rgba(51, 42, 212, 0.5);

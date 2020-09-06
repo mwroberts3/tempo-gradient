@@ -10,6 +10,7 @@
 .play-button-container,
 .playback-options {
   height: 100px;
+  padding: 0;
   border: none; }
 
 .tempo-setting > *,
@@ -35,13 +36,8 @@ input[type="number"] {
   top: 48%; }
 
 .website-info {
-  margin-top: 105px;
-  color: #aaa;
-  font-size: 16px;
+  margin-top: 30px;
   position: initial; }
 
 .popout-btn {
   height: 70%; }
-
-.playback-options div {
-  height: 88%; }
