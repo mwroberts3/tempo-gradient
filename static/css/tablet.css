@@ -30,5 +30,8 @@
   grid-column: 1 / span 2;
   will-change: contents; }
 
+.play-button-container i {
+  top: 47%; }
+
 .website-info {
   top: 93vh; }

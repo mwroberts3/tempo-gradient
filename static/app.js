@@ -2,7 +2,6 @@ const settings = document.querySelector(".settings");
 const playButton = document.querySelector("#playStop");
 const click = document.querySelector("#metronomeClick");
 const timeDisplay = document.querySelector(".time-display");
-const fractionCount = document.querySelectorAll(".interval-fraction");
 const timeBarDisplay = document.querySelector(".time-bar-display");
 const playBackOptions = document.querySelector(".playback-options");
 const clickSound = document.getElementById("click-sound");
@@ -72,18 +71,14 @@ playBackOptions.addEventListener("click", (e) => {
 });
 
 // TEMPO INPUT & PLAYBACK INIT
-settings.playStop.addEventListener("click", () => {
+settings.playStop.addEventListener("click", (e) => {
   bpmStart = settings.tempostart.value;
   bpmEnd = settings.tempoend.value;
   duration = settings.duration.value;
-  console.log(
-    "tempo-start: ",
-    bpmStart,
-    "tempo-end: ",
-    bpmEnd,
-    "duration: ",
-    duration
-  );
+
+  console.log(e);
+  settings.playStop.nextElementSibling.classList.remove("fa-play");
+  settings.playStop.nextElementSibling.classList.add("fa-stop");
 
   if (bpmStart && bpmEnd && duration) {
     duration *= 60000;
@@ -101,9 +96,7 @@ settings.playStop.addEventListener("click", () => {
       "beat diff: ",
       beatDiff
     );
-  }
-  // RUN AS REGULAR METRONOME, ONLY NEED THE TEMPO-START FIELD FILLED IN TODO
-  else if (bpmStart) {
+  } else if (bpmStart) {
     beatDiff = 0;
     currentTempo = 60000 / bpmStart;
     bpmEnd = currentTempo;

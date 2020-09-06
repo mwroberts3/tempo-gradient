@@ -31,11 +31,14 @@ input[type="number"] {
   grid-column: 1 / span 1;
   will-change: contents; }
 
+.play-button-container i {
+  top: 48%; }
+
 .website-info {
-  margin-top: 100px;
-  color: #fff;
+  margin-top: 105px;
+  color: #aaa;
   font-size: 16px;
-  line-height: 0; }
+  position: initial; }
 
 .popout-btn {
   height: 70%; }
